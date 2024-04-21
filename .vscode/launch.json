@@ -1,0 +1,26 @@
+{
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mysylar",  // 该调试任务的名字，启动调试时会在待选列表中显示
+            "type": "cppdbg", // 一般都是这个
+            "request": "launch", //	启动模式，还有个attach没有弄懂怎么玩
+            "program": "${workspaceFolder}/bin/config_http_server", // 启动的程序
+            "args": [],// 启动程序后面的参数 char** argv,需要注意的是这个模式下参数序号会+1,后面细讲
+            "stopAtEntry": false,  // 这一项控制是否在入口处暂停，默认false不暂停，改为true暂停
+            "cwd": "${workspaceFolder}",// 运行路径
+            "environment": [],
+            "externalConsole": false,  // 这一项控制是否启动外部控制台（独立的黑框）运行程序，默认false表示在集成终端中运行
+            "MIMode": "gdb",// 调试工具名称
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // "preLaunchTask": "${workspaceFolder}/.vscode/task.json"  // 调试前的预执行任务，这里的值是tasks.json文件中对应的编译任务，也就是调试前需要先编译
+        }
+    ]
+}
