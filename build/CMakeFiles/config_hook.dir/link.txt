@@ -1,1 +1,0 @@
-/usr/bin/c++   -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -rdynamic CMakeFiles/config_hook.dir/mytest/test_hook.cc.o -o /home/jiangz/jz/mysylar/bin/config_hook  -Wl,-rpath,/home/jiangz/jz/mysylar/lib /home/jiangz/jz/mysylar/lib/libmysylar.so -ldl -lpthread /usr/local/lib/libyaml-cpp.a 
