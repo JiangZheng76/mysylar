@@ -29,3 +29,6 @@ stamp-h1
 depcomp
 *.xcodeproji
 *.so
+build/* 
+bin/*
+lib/*
