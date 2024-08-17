@@ -3,15 +3,15 @@
  * @Date: 2023-06-27 11:06:06
  * @LastEditors: Jiangzheng 2440877322@qq.com
  * @LastEditTime: 2024-02-24 11:50:59
- * @FilePath: /mysylar/mysylar/scheduler.hpp
+ * @FilePath: /mysylar/mysylar/scheduler.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #ifndef __MYSYLAR_SCHEDULER_HPP__
 #define __MYSYLAR_SCHEDULER_HPP__
 #include <memory>
 #include "thread.hh"
-#include "fiber.hpp"
-#include "mutex.hpp"
+#include "fiber.h"
+#include "mutex.h"
 #include <vector>
 namespace mysylar{
 

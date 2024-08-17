@@ -1,13 +1,13 @@
 /*
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-06-27 11:06:12
- * @LastEditors: Jiangzheng 2440877322@qq.com
- * @LastEditTime: 2024-03-30 11:17:00
+ * @LastEditors: Johnathan 2440877322@qq.com
+ * @LastEditTime: 2024-08-14 00:54:38
  * @FilePath: /mysylar/mysylar/scheduler.cc
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "log.h"
-#include "scheduler.hpp"
+#include "scheduler.h"
 #include "hook.h"
 namespace mysylar{
 
@@ -26,12 +26,13 @@ Scheduler::Scheduler(size_t threads,bool use_caller,const std::string& name)
     
     // 如果将创建调度器的线程加入到线程池中
     if(use_caller){
-        Fiber::GetThis();
+        Fiber::GetThis(); // 创建当前线程的作为主携程
         --threads; // 这是什么操作？？？
 
         SYLAR_ASSERT(GetThis() == nullptr); // 防止创建了多个调度器
         t_scheduler = this;
-        // 将调度器绑定到一个主协程里面去
+
+        // 创建调度器自己的协程
         m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run,this)));
         Thread::SetName(m_name);
 

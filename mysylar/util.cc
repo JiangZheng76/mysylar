@@ -9,12 +9,12 @@
 #include "util.h"
 #include <unistd.h>
 #include <sys/syscall.h>
-#include <sylar.hh>
+#include <sylar.h>
 #include <exception>
 #include <typeinfo>
 #include <string>
 #include <sys/time.h>
-#include "fiber.hpp"
+#include "fiber.h"
 namespace mysylar{
 
 mysylar::Logger::ptr g_log_system = SYLAR_LOG_NAME("system");

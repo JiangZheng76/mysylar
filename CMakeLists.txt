@@ -6,33 +6,48 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS}  -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-depre
 # set(CMAKE_CXX_FLAGS "-std=c++11 -s")
 include_directories(mysylar)
 find_package(yaml-cpp REQUIRED)
+find_package(OpenSSL REQUIRED)
+
+set(STREAMS_SRC
+    mysylar/streams/socket_stream.cc 
+    mysylar/streams/stream.cc 
+    mysylar/streams/zlib_stream.cc
+)
+set(HTTP_SRC
+    mysylar/http/http_connection.cc 
+    mysylar/http/http_parser.cc 
+    mysylar/http/http_server.cc 
+    mysylar/http/http_session.cc 
+    mysylar/http/http.cc 
+    mysylar/http/http11_parser.cc 
+    mysylar/http/httpclient_parser.cc
+)
+
+set(SYALR_SRC
+    mysylar/address.cc 
+    mysylar/bytearray.cc 
+    mysylar/config.cc 
+    mysylar/fd_manager.cc 
+    mysylar/fiber.cc 
+    mysylar/hook.cc 
+    mysylar/iomanager.cc 
+    mysylar/log.cc 
+    mysylar/marco.cc 
+    mysylar/mutex.cc 
+    mysylar/scheduler.cc 
+    mysylar/servlet.cc 
+    mysylar/socket.cc 
+    mysylar/tcp_server.cc 
+    mysylar/thread.cc 
+    mysylar/timer.cc 
+    mysylar/util.cc
+)
 
 set(LIB_SRC 
-    mysylar/config.cc
-    mysylar/mutex.cc
-    mysylar/util.cc
-    mysylar/thread.cc
-    mysylar/log.cc
-    mysylar/fiber.cc
-    mysylar/scheduler.cc
-    mysylar/iomanager.cc
-    mysylar/timer.cc
-    mysylar/hook.cc
-    mysylar/fd_manager.cc
-    mysylar/address.cc
-    mysylar/socket.cc
-    mysylar/bytearray.cc
-    mysylar/http.cc
-    mysylar/http/http11_parser.cc
-    mysylar/http/httpclient_parser.cc
-    mysylar/http/http_parser.cc
-    mysylar/tcp_server.cc
-    mysylar/stream.cc
-    mysylar/socket_stream.cc
-    mysylar/http_session.cc
-    mysylar/http_server.cc
-    mysylar/servlet.cc
-    )
+    ${SYALR_SRC}
+    ${STREAMS_SRC}
+    ${HTTP_SRC}
+)
 
 # include_directories(${PROJECT_SOURCE_DIR}/lib)
 # link_directories(${PROJECT_SOURCE_DIR}/lib)
@@ -45,6 +60,7 @@ set(LIB
     dl
     pthread
     yaml-cpp
+    ${OPENSSL_LIBRARIES}
     )
 
 add_executable(config_thread mytest/test_thread.cc)

@@ -3,15 +3,15 @@
  * @Date: 2024-02-23 16:22:07
  * @LastEditors: Jiangzheng 2440877322@qq.com
  * @LastEditTime: 2024-03-19 12:24:41
- * @FilePath: /mysylar/mysylar/iomanager.hpp
+ * @FilePath: /mysylar/mysylar/iomanager.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #ifndef __SYLAR_IOMANAGER_H__
 #define __SYLAR_IOMANAGER_H__
 
 #include "sylar.hh"
-#include "scheduler.hpp"
-#include "timer.hpp"
+#include "scheduler.h"
+#include "timer.h"
 #include <sys/epoll.h>
 
 namespace mysylar{

@@ -1,8 +1,8 @@
 /*
  * @Author: Jiangzheng 2440877322@qq.com
  * @Date: 2024-02-28 22:46:29
- * @LastEditors: Jiangzheng 2440877322@qq.com
- * @LastEditTime: 2024-03-19 10:44:04
+ * @LastEditors: Johnathan 2440877322@qq.com
+ * @LastEditTime: 2024-07-06 12:43:46
  * @FilePath: /mysylar/mysylar/address.cc
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -35,6 +35,10 @@ std::string Address::toString(){
     std::stringstream ss;
     insert(ss);
     return ss.str();
+}
+
+std::ostream& operator<<(std::ostream& os,const Address* addr){
+    return addr->insert(os);
 }
 /**
  * @brief 不知道地址类型的时候，进行创建地址，getaddrinfo直接返回地址sockaddr

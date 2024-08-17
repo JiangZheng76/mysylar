@@ -15,8 +15,8 @@
 #include <memory>
 #include <sys/types.h>
 #include <semaphore.h>
-#include <mutex.hpp>
-#include "config.hpp"
+#include <mutex.h>
+#include "config.h"
 #include "log.h"
 
 namespace mysylar{
