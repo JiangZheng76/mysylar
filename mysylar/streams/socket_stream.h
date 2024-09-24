@@ -19,7 +19,7 @@ namespace mysylar{
  */
 class SocketStream : public Stream{
 public:    
-    SocketStream(Socket::ptr sock,bool owner = true);
+    SocketStream(Socket::ptr sock=nullptr,bool owner = true);
     virtual ~SocketStream();
 
     bool isConnected();
