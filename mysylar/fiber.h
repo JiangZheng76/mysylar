@@ -9,7 +9,7 @@
 #ifndef __MYSYLAR_FIBER_HPP__
 #define __MYSYLAR_FIBER_HPP__
 
-#include <sylar.hh>
+#include <sylar.h>
 #include <memory>
 #include <functional>
 #include <ucontext.h>

@@ -487,7 +487,8 @@ std::ostream& operator<<(std::ostream& os ,const Socket& sock){
 struct _SSLInit {
     _SSLInit() {
         // 初始化 ssl
-        OPENSSL_init_ssl();
+        // OPENSSL_init_ssl();
+        OPENSSL_init_ssl(OPENSSL_INIT_LOAD_SSL_STRINGS | OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
         //  调试使用，遇到错误的时候加载人类可读的错误字
         SSL_load_error_strings();
         // 添加所有可用的加密算法
@@ -516,6 +517,10 @@ Socket::ptr SSLSocket::accept(){
         return sock;
     }
     return nullptr;
+}
+SSLSocket::ptr SSLSocket::CreateTCP(Address::ptr addr){
+    SSLSocket::ptr ssl_sock(new SSLSocket(addr->getFamily(),TCP));
+    return ssl_sock;
 }
 /// 初始化本地地址
 bool SSLSocket::bind(const Address::ptr addr){

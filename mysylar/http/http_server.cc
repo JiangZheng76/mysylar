@@ -4,7 +4,7 @@ namespace mysylar{
 namespace http{
 
 
-mysylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+static mysylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 HttpServer::HttpServer(bool keepalive,IOManager* worker
     ,IOManager* accept_worker
     )

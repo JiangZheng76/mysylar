@@ -9,7 +9,7 @@
 #ifndef __SYLAR_IOMANAGER_H__
 #define __SYLAR_IOMANAGER_H__
 
-#include "sylar.hh"
+#include "sylar.h"
 #include "scheduler.h"
 #include "timer.h"
 #include <sys/epoll.h>

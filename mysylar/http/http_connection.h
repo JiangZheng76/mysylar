@@ -9,10 +9,10 @@
 #ifndef __SYLAR_HTTP_CONNECTION_H__
 #define __SYLAR_HTTP_CONNECTION_H__
 
-#include "sylar.hh"
+#include "sylar.h"
 
-#include "http.h"
-#include "socket_stream.h"
+#include "http/http.h"
+#include "streams/socket_stream.h"
 
 
 namespace mysylar{
@@ -37,7 +37,7 @@ public:
         POOL_INVALID_CONNECTION = 9,
     };
 
-    HttpResult(int _result,HttpResponse::ptr rsp,std::string& _error);
+    HttpResult(int _result,HttpResponse::ptr rsp,const std::string& _error);
     std::string toString() const;
 
     int m_result;
@@ -51,7 +51,7 @@ public:
 
     HttpConnection(Socket::ptr sock,bool is_owner = true);
 
-    virtual ~HttpConnection(){}
+    virtual ~HttpConnection();
 
     HttpResponse::ptr recvResponse();
 
@@ -100,8 +100,8 @@ public:
                         ,const std::string& body);
     
     HttpResult::ptr doRequest(HttpRequest::ptr req,uint64_t timeout);
-
-    void ReleasePtr(HttpConnection* ptr,HttpConnectionPool* pool);
+private:
+    static void ReleasePtr(HttpConnection* ptr,HttpConnectionPool* pool);
 private:
     std::string m_host;
     std::string m_vhost;

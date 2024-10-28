@@ -8,6 +8,7 @@ include_directories(mysylar)
 find_package(yaml-cpp REQUIRED)
 find_package(OpenSSL REQUIRED)
 
+
 set(STREAMS_SRC
     mysylar/streams/socket_stream.cc 
     mysylar/streams/stream.cc 
@@ -21,6 +22,7 @@ set(HTTP_SRC
     mysylar/http/http.cc 
     mysylar/http/http11_parser.cc 
     mysylar/http/httpclient_parser.cc
+    mysylar/http/uri.cc
 )
 
 set(SYALR_SRC
@@ -61,6 +63,7 @@ set(LIB
     pthread
     yaml-cpp
     ${OPENSSL_LIBRARIES}
+    z
     )
 
 add_executable(config_thread mytest/test_thread.cc)

@@ -9,8 +9,8 @@
 #ifndef __SYLAR_SERVLET_H__
 #define __SYLAR_SERVLET_H__
 #include <memory>
-#include "http.h"
-#include "http_session.h"
+#include "http/http.h"
+#include "http/http_session.h"
 #include <map>
 #include "thread.hh"
 namespace mysylar{

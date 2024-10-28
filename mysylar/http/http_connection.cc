@@ -19,7 +19,7 @@ namespace mysylar
     namespace http
     {
         Logger::ptr g_logger = SYLAR_LOG_NAME("system");
-        HttpResult::HttpResult(int _result, HttpResponse::ptr rsp, std::string &_error)
+        HttpResult::HttpResult(int _result, HttpResponse::ptr rsp, const std::string &_error)
             : m_result(_result), m_rsp(rsp), m_error(_error)
         {
         }
@@ -380,7 +380,8 @@ namespace mysylar
             auto conn = getConnection();
             if (!conn)
             {
-                return std::make_shared<HttpResult>((int)HttpResult::Error::POOL_GET_CONNECTION, nullptr, "pool host:" + m_host + " port:" + std::to_string(m_port));
+                return std::make_shared<HttpResult>((int)HttpResult::Error::POOL_GET_CONNECTION
+                    , nullptr, "pool host:" + m_host + " port:" + std::to_string(m_port));
             }
             // 检查套接字是否还合法
             auto sock = conn->getSocket();

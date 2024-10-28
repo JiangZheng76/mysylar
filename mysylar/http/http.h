@@ -3,7 +3,7 @@
 #include <memory>
 #include <map>
 #include <string.h>
-#include "sylar.hh"
+#include "sylar.h"
 // #include "http/http_parser.h"
 namespace mysylar{
 
@@ -417,10 +417,10 @@ public:
 
 };
 
-std::ostream& operator<<(std::ostream& os,HttpRequest& req){
+static std::ostream& operator<<(std::ostream& os,HttpRequest& req){
   return req.dump(os);
 }
-std::ostream& operator<<(std::ostream& os,HttpResponse& rsp){
+static std::ostream& operator<<(std::ostream& os,HttpResponse& rsp){
   return rsp.dump(os);
 }
 

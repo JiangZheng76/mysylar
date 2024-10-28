@@ -78,8 +78,8 @@ public:
 
 private:
     z_stream m_zstream;
-    uint32_t m_buff_size; // 一个块的大小
     bool m_encode; // 这个 encode 有什么作用？？？encode 用于标识释放 m_zstream 的资源，目前还没懂原理？？？
+    uint32_t m_buff_size; // 一个块的大小
     bool m_free; // ？？？有什么作用么？用于表示释放，m_buffs里面缓冲区资源，和 socket_stream的功能类似
     std::vector<iovec> m_buffs;
 

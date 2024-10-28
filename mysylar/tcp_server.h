@@ -9,9 +9,9 @@
 #ifndef __SYLAR__TCP_SERVER_H__
 #define __SYLAR__TCP_SERVER_H__
 #include "iomanager.h"
-#include "sylar.hh"
+#include "sylar.h"
 #include "socket.h"
-#include "socket_stream.h"
+#include "streams/socket_stream.h"
 #include <memory>
 
 namespace mysylar{

@@ -11,7 +11,7 @@
 
 #include <memory>
 #include "thread.hh"
-#include "sylar.hh"
+#include "sylar.h"
 
 namespace mysylar{
     

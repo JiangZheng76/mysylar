@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 #include <unordered_set>
-#include <boost/lexical_cast.h> // 内存转化
+#include <boost/lexical_cast.hpp> // 内存转化
 #include <yaml-cpp/yaml.h>
 #include <algorithm>
 #include <type_traits>
@@ -24,7 +24,7 @@
 #include "mutex.h"
 #include "singleton.h"
 #include "threads.h"
-#include "sylar.hh"
+#include "sylar.h"
 
 class Person {
 public:
