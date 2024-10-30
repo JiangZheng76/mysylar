@@ -37,6 +37,8 @@ public:
     const std::string& getName(){ return m_name; }
     pid_t getId(){ return m_id; }
 
+    void detach();
+
 private:
     Thread(const Thread& ) = delete;
     Thread(const Thread && ) = delete;

@@ -53,7 +53,8 @@ set(LIB_SRC
 
 # include_directories(${PROJECT_SOURCE_DIR}/lib)
 # link_directories(${PROJECT_SOURCE_DIR}/lib)
-add_library(mysylar SHARED ${LIB_SRC})
+add_library(mysylar SHARED ${LIB_SRC}) # 构建动态库
+#add_library(mysylar STATIC ${LIB_SRC}) # 构建静态库
 
 find_library(PTHREAD pthread)
 

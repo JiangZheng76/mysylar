@@ -58,6 +58,7 @@ public:
      */        
     virtual int write(ByteArray::ptr ba,size_t length) override;
 
+    void reset(Socket::ptr socket,bool owner);
     Address::ptr getRemoteAddress();
     Address::ptr getLocalAddress();
     std::string getRemoteAddressString();

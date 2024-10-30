@@ -66,6 +66,11 @@ Thread::~Thread(){
         pthread_detach(m_thread);
     }
 }
+void Thread::detach(){
+    if(m_thread){
+        pthread_detach(m_thread);
+    }
+}
 /**
  * @brief 获取当前的执行线程，A线程里面调用获取A线程自己 
  * @description: 

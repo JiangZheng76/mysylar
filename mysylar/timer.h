@@ -10,7 +10,7 @@
 #define __SYLAR_TIMER_H__
 
 #include <memory>
-#include "thread.hh"
+#include "thread.h"
 #include "sylar.h"
 
 namespace mysylar{

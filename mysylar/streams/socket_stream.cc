@@ -99,4 +99,12 @@ std::string SocketStream::getLocalAddressString(){
     return "";
 }
 
+void SocketStream::reset(Socket::ptr socket,bool owner){
+    if(m_socket){
+        m_socket->close();
+    }
+    m_socket = socket;
+    m_owner = owner;
+}
+
 }

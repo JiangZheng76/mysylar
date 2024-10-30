@@ -9,7 +9,7 @@
 #ifndef __SYLAR__FD_MANAGER_H__
 #define __SYLAR__FD_MANAGER_H__
 #include <memory>
-#include "thread.hh"
+#include "thread.h"
 #include "iomanager.h"
 #include "singleton.h"
 #include <sys/types.h>          /* See NOTES */

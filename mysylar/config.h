@@ -23,7 +23,7 @@
 #include "log.h"
 #include "mutex.h"
 #include "singleton.h"
-#include "threads.h"
+#include "thread.h"
 #include "sylar.h"
 
 class Person {

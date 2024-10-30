@@ -25,7 +25,7 @@
 
 #include "mutex.h"
 #include "singleton.h"
-#include "threads.h"
+#include "thread.h"
 
 #define SYLAR_LOG_LEVEL(logger, level) \
     if(logger->getLevel() <= level)  \

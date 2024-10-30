@@ -9,7 +9,7 @@
 #ifndef __MYSYLAR_SCHEDULER_HPP__
 #define __MYSYLAR_SCHEDULER_HPP__
 #include <memory>
-#include "thread.hh"
+#include "thread.h"
 #include "fiber.h"
 #include "mutex.h"
 #include <vector>

@@ -18,7 +18,7 @@
 #include "mutex.h"
 #include "macro.h"
 // #include "scheduler.h"
-#include "thread.hh"
+#include "thread.h"
 #include "fiber.h"
 
 
