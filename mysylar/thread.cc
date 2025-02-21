@@ -105,6 +105,16 @@ void Thread::join(){
     }
     
 }
+void Thread::detach(){
+    if(m_thread){
+        int rt = pthread_detach(m_thread);
+        if(rt) {
+                SYLAR_LOG_ERROR(g_log_system) << "pthread_join thread fail" 
+                << rt << " name= " << m_name;
+            throw std::logic_error("pthread_join error");
+        }
+    }
+}
 
 /**
  * @brief 
@@ -127,7 +137,7 @@ void* Thread::run(void* arg){
     // 需要等待线程开始跑了，提醒结束初始化
     thread->m_semaphore.notify();
     cb();
-    SYLAR_LOG_INFO(g_log_system) << "thraed end.";
+    SYLAR_LOG_DEBUG(g_log_system) << "thread end.";
     return 0;
 }
 

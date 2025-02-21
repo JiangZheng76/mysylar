@@ -29,6 +29,7 @@ public:
     ~Thread();
     
     void join();
+    void detach();
 
     static Thread* GetThis();
     static void SetName(const std::string& name);

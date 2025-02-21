@@ -1,6 +1,7 @@
 #include "socket.h"
 #include "fd_manager.h"
-#include "hook.h"
+// #include "hook.h"
+#include "log.h"
 #include <sys/types.h>          /* See NOTES */
 #include <sys/socket.h>
 #include <netinet/tcp.h>
@@ -123,7 +124,7 @@ Socket::ptr Socket::accept(){
     // accept 成功之后返回新创建的 sock fd
     int netsocket = ::accept(m_sock,nullptr,nullptr); 
     if(!netsocket){
-        SYLAR_LOG_INFO(g_logger_sys)<< "Socket::accept() sock=" << m_sock << " errno=" << errno 
+        SYLAR_LOG_ERROR(g_logger_sys)<< "Socket::accept() sock=" << m_sock << " errno=" << errno 
             << "strerrno=" << std::strerror(errno);
         return nullptr;
     }
@@ -143,16 +144,17 @@ bool Socket::init(int sock){
     FdCtx::ptr ctx = FdMgr::GetInstance()->get(sock);
      // sock 即有自己的对象，也有在 fd 中保存起来
     //  创建了
-    if(ctx && ctx->isSocket() && !ctx->isClose()){
-        m_sock = sock;
-        m_isConnected = true;
-        // 内部 option 的设置
-        initSock();
-        // 记录当前这个 sock 的远端地址（客户端）和本地地址（服务器新分配的）
-        getLocalAddress();
-        getRemoteAddress();
-        return true;
-    }
+    // if(ctx && ctx->isSocket() && !ctx->isClose()){
+    // TODO socke 
+    m_sock = sock;
+    m_isConnected = true;
+    // 内部 option 的设置
+    initSock();
+    // 记录当前这个 sock 的远端地址（客户端）和本地地址（服务器新分配的）
+    getLocalAddress();
+    getRemoteAddress();
+    return true;
+    // }
     return false;
 }
 bool Socket::isVaild() const{
@@ -209,7 +211,9 @@ bool Socket::connect(const Address::ptr addr, uint64_t timeout_ms){
             return false;
         }
     } else {
-        if(::connect_with_timeout(m_sock,addr->getAddr(),addr->getAddrlen(),timeout_ms)){
+        // TODO 修改了 hook connect
+        // if((::connect_with_timeout(m_sock,addr->getAddr(),addr->getAddrlen(),timeout_ms)){
+        if(::connect(m_sock,addr->getAddr(),addr->getAddrlen())){
             SYLAR_LOG_ERROR(g_logger_sys) << "Socket::connect  ::connect_with_timeout("<<m_sock << " ," << addr->toString() << "," << addr->getAddrlen() 
                 << "," << timeout_ms << ") errno=" << strerror(errno) ;
             close();

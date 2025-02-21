@@ -61,7 +61,13 @@ Address::ptr Address::Create(sockaddr* addr){
     
     return rt;
 }
-
+/// @brief 
+/// @param result 
+/// @param host 
+/// @param family 
+/// @param type 
+/// @param protocol 
+/// @return 
 bool Address::Lookup(std::vector<Address::ptr>& result, const std::string& host,int family,int type,int protocol){
     addrinfo hints,* results, * next;
     hints.ai_flags = 0;
@@ -124,7 +130,12 @@ bool Address::Lookup(std::vector<Address::ptr>& result, const std::string& host,
     freeaddrinfo(results);
     return true;
 }
-
+/// @brief 通过名字（支持域名或者 ip）创建 address
+/// @param host ip / 域名
+/// @param family 
+/// @param type 
+/// @param protocol 
+/// @return 
 std::shared_ptr<IPAddress> Address::LookupAnyIPAddress(const std::string& host,int family,int type,int protocol ){
     std::vector<Address::ptr>  result;
     bool rt = Lookup(result,host,family,type,protocol);

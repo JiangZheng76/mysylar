@@ -8,7 +8,7 @@
  */
 #include "log.h"
 #include "scheduler.hpp"
-#include "hook.h"
+// #include "hook.h"
 namespace mysylar{
 
 static thread_local Scheduler * t_scheduler = nullptr; // 当前线程执行的调度器
@@ -150,7 +150,8 @@ void Scheduler::run(){
     // 1、设置当前线程的调度器
 
     setThis();
-    set_hook_enable(true); //  只有 scheduler 可以使用这个库
+    // TODO 取消了 hook 
+    // set_hook_enable(true); //  只有 scheduler 可以使用这个库
     // 2、 设置调度协程为主携程
     if(m_rootThreadId != GetThreadId()){
         // 设置主携程

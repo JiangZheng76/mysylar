@@ -27,6 +27,7 @@ IOManager::FdContext::EventContext& IOManager::FdContext::getEventContext(Event 
         default : 
             SYLAR_ASSERT2(false,"getEventConetxt()");
     }
+    return write;
 }
 /**
  * @brief 清空scheduler fiber 和 cb

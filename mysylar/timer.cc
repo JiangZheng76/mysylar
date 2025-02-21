@@ -18,7 +18,7 @@ static Logger::ptr g_Logger_sys = SYLAR_LOG_ROOT();
  * @description: 
  * @return {*}
  */
-bool Timer::Comparator::operator() (const Timer::ptr& lhs,const Timer::ptr & rhs){
+bool Timer::Comparator::operator() (const Timer::ptr& lhs,const Timer::ptr & rhs) const{
     if(!lhs && !rhs){
         return false;
     }
