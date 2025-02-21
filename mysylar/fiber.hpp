@@ -16,7 +16,7 @@
 
 #include <functional>
 #include <memory>
-#include <sylar.hh>
+#include <sylar.h>
 namespace mysylar {
 
 class Fiber : public std::enable_shared_from_this<Fiber> {

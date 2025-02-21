@@ -27,7 +27,7 @@
 #include "log.h"
 #include "mutex.hpp"
 #include "singleton.h"
-#include "sylar.hh"
+#include "sylar.h"
 #include "threads.h"
 
 class Person {

@@ -12,7 +12,7 @@
 #include "http.h"
 #include "http_session.h"
 #include <map>
-#include "thread.hh"
+#include "thread.h"
 namespace mysylar{
 
 namespace http{

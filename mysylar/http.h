@@ -3,7 +3,7 @@
 #include <memory>
 #include <map>
 #include <string.h>
-#include "sylar.hh"
+#include "sylar.h"
 // #include "http/http_parser.h"
 namespace mysylar{
 

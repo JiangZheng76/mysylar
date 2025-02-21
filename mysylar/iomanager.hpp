@@ -13,7 +13,7 @@
 #include <sys/epoll.h>
 
 #include "scheduler.hpp"
-#include "sylar.hh"
+#include "sylar.h"
 #include "timer.hpp"
 
 namespace mysylar {

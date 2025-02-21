@@ -16,7 +16,7 @@
 
 #include "fiber.hpp"
 #include "mutex.hpp"
-#include "thread.hh"
+#include "thread.h"
 namespace mysylar {
 
 class Scheduler {

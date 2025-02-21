@@ -9,7 +9,7 @@
 #include "util.h"
 #include <unistd.h>
 #include <sys/syscall.h>
-#include <sylar.hh>
+#include <sylar.h>
 #include <exception>
 #include <typeinfo>
 #include <string>

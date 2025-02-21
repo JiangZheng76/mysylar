@@ -9,7 +9,7 @@
 #ifndef __SYLAR__STREAM_H__
 #define __SYLAR__STREAM_H__
 
-#include "sylar.hh"
+#include "sylar.h"
 #include "bytearray.h"
 
 namespace mysylar{
